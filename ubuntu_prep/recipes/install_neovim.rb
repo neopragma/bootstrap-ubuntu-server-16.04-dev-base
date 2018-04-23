@@ -105,8 +105,13 @@ end
 
 bash 'copy neovim configuration files and set ownership' do
   code <<-EOF
+    cp /root/bootstrap-ubuntu-server-16.04-dev-base/neovim/init.vim /root/.config/nvim/. 
     mkdir -p /home/dev/.config/nvim 
     cp -r /root/.config/nvim/* /home/dev/.config/nvim/.
+    chown -R dev /home/dev
+    chgrp -R dev /home/dev
+    chown -R dev /home/dev/.config 
+    chgrp -R dev /home/dev/.config
     chown -R dev /home/dev/.config/nvim 
     chgrp -R dev /home/dev/.config/nvim
     EOF
