@@ -8,16 +8,14 @@ package 'python-pip'
 package 'python3-pip'
 package 'neovim'
 
-# NOTE: The pip2 and pip3 commands will not work over ssh. 
-# The recipe must be executed on the target instance for these commands to work.
-# Worst case, execute the commands on a command line and comment them out of the recipe.
-execute 'add python support to neovim' do
-  command "$(pip2 install --user neovim)"
-end
+# NOTE: There are known issues with pip2 on Ubuntu distros
+#execute 'add python support to neovim' do
+#  command "$(pip2 install --user neovim)"
+#end
 
-execute 'add python3 support to neovim' do
-  command "$(pip3 install --user neovim)"
-end
+#execute 'add python3 support to neovim' do
+#  command "$(pip3 install --user neovim)"
+#end
 
 bash 'set neovim as the system default editor' do
   code <<-EOF
