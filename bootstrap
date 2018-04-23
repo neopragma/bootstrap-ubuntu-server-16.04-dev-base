@@ -31,26 +31,26 @@ printf "Enabling root login via ssh...\n"
 cp /etc/ssh/sshd_config /etc/ssh/sshd_config.bkp 
 sed -i '/PermitRootLogin/ c\PermitRootLogin yes' /etc/ssh/sshd_config 
 
-apt install -y build-essential \ 
-    linux-headers-`uname -r` \    
-    dkms \
-    ruby2.4 \ 
-    ruby2.4-dev \ 
-    ruby-bundler \ 
-    curl 
+apt install -y build-essential
+apt install -y linux-headers-`uname -r`
+apt install -y dkms
+apt install -y ruby2.4
+apt install -y ruby2.4-dev
+apt install -y ruby-bundler
+apt install -y curl
 
 printf "Installing Chef DK.\n" 
 curl https://omnitruck.chef.io/install.sh | bash -s -- -P chefdk -c stable -v 2.0.28
 
 printf "Copying files from distribution directories to target directories.\n"
-cp scripts/* /usr/local/bin 
+cp ./scripts/* /usr/local/bin 
 mkdir -p /root/chef-repo/cookbooks/ubuntu_prep/spec/unit
 mkdir -p /root/chef-repo/cookbooks/ubuntu_prep/recipes 
-cp ubuntu_prep/Gemfile /root/chef-repo/cookbooks/ubuntu_prep/. 
-cp ubuntu_prep/Rakefile /root/chef-repo/cookbooks/ubuntu_prep/.
-cp -r ubuntu_prep/recipes/* /root/chef-repo/cookbooks/ubuntu_prep/recipes
-cp spec/spec_helper.rb /root/chef-repo/cookbooks/ubuntu_prep/spec/spec_helper.rb 
-cp -r ubuntu_prep/spec/unit/recipes/* /root/chef-repo/cookbooks/ubuntu_prep/spec/unit/recipes 
+cp ./ubuntu_prep/Gemfile /root/chef-repo/cookbooks/ubuntu_prep/. 
+cp ./ubuntu_prep/Rakefile /root/chef-repo/cookbooks/ubuntu_prep/.
+cp -r ./ubuntu_prep/recipes/* /root/chef-repo/cookbooks/ubuntu_prep/recipes
+cp ./ubuntu_prep/spec/spec_helper.rb /root/chef-repo/cookbooks/ubuntu_prep/spec/spec_helper.rb 
+cp -r ./ubuntu_prep/spec/unit/recipes/* /root/chef-repo/cookbooks/ubuntu_prep/spec/unit/recipes 
 
 printf "Executing Chef to complete provisioning the instance.\n"
 cd /root/chef-repo/cookbooks 

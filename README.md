@@ -59,7 +59,7 @@ Login as root. Clone the repository for Ubuntu Server 16.04:
 
 ```shell 
 cd 
-git clone git://github.com/neopragma/bootstrap-ubuntu-server-16.04-base
+git clone git://github.com/neopragma/bootstrap-ubuntu-server-16.04-dev-base
 ``` 
 
 ### 2.3. (Optional) Review default configuration and modify as desired.
@@ -104,11 +104,11 @@ bootstrap-ubuntu-server-16.04-base/
 
 ### 2.4. Run the bootstrap script.
 
-If all goes well, this will provision the instance as a base or template for building development environments. Check the results carefully in case of errors. There are many steps and anything can happen despite care in preparing the script. 
+If all goes well, this will provision the instance as a base or template for building development environments. Check the results carefully in case of errors. There are many steps and anything can happen despite care in preparing the script. Suggest you direct output to a file so you can browse the results with more or less. 
 
 ```shell 
 cd /root/bootstrap-ubuntu-server-16.04-dev-base
-./bootstrap
+./bootstrap 2>&1 bootstrap.out 
 ``` 
 
 ### 3. Manual configuration of NeoVim.
