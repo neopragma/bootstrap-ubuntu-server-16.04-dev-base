@@ -74,7 +74,7 @@ In particular, look at:
 The directory structure of the provisioning repository looks like this:
 
 ```
-bootstrap-ubuntu-server-16.04-base/
+bootstrap-ubuntu-server-16.04-dev-base/
     bootstrap              Bash script to prepare the instance to run Chef
                            and kick off the Chef cookbook that completes
                            the provisioning.
