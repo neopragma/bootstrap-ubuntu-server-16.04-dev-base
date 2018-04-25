@@ -108,7 +108,7 @@ If all goes well, this will provision the instance as a base or template for bui
 
 ```shell 
 cd /root/bootstrap-ubuntu-server-16.04-dev-base
-./bootstrap 2>&1 bootstrap.out 
+./bootstrap 2>&1> bootstrap.out 
 ``` 
 
 ### 3. Manual configuration of NeoVim.
@@ -120,17 +120,21 @@ Some steps can't be scripted.
 There are issues on Ubuntu distros with pip2. Might require some fiddling.
 
 ```shell 
+pip2 install --upgrade pip 
 pip2 install --user neovim 
+pip3 install --upgrade pip 
 pip3 install --user neovim 
 ```
 
-#### 3.2. Enable plugins 
+### 3.2. Create alias to start X session 
 
-One-time run of :UpdateRemotePlugins for certain plugins.
+For both the 'dev' and 'root' users, add an alias to the end of .bashrc to start an X session. Source .bashrc to enable the setting. 
 
-- Start neovim 
-- Run the editor command :UpdateRemotePlugins
-- Quit neovim
+```shell 
+cd 
+echo "alias gui='startx'" >> .bashrc 
+. .bashrc
+```
 
 #### 3.3. Set NeoVim as the default editor 
 
@@ -142,6 +146,13 @@ update-alternatives --config editor
 
 Choose the number corresponding to NeoVim and press Enter.
 
+#### 3.4. Enable plugins 
+
+One-time run of :UpdateRemotePlugins for certain plugins.
+
+- Start neovim 
+- Run the editor command :UpdateRemotePlugins
+- Quit neovim
 
 ### 4. Known issues with the bootstrap process
 

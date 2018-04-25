@@ -307,9 +307,9 @@
     <action name="Execute">
       <startupnotify>
         <enabled>true</enabled>
-        <name>Konqueror</name>
+        <name>Terminal</name>
       </startupnotify>
-      <command>gnome-terminal</command>
+      <command>lxterminal</command>
     </action>
   </keybind>
   <!-- Launch scrot when Print is pressed -->

@@ -3,7 +3,7 @@
 package 'xauth'
 package 'xorg'
 package 'openbox'
-package 'gnome-terminal'
+package 'lxterminal'
 
 bash 'copy openbox configuration files to user dev' do 
   code <<-EOF
