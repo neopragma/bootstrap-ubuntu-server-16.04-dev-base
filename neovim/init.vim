@@ -12,6 +12,10 @@ filetype plugin indent on
 " Enable autocompletion
 set omnifunc=syntaxcomplete#Complete
 
+" Work around the problem in some terminal emulators
+" of displaying unsupported termcodes
+set guicursor=
+
 " Have the editor show line numbers
 :set number
 
